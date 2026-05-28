@@ -6,6 +6,7 @@ namespace PermDynamics_Shein
     public partial class MainWindow : Window
     {
         public List<Classes.PointInfo> pointsInfo = new List<Classes.PointInfo>();
+        public List<Classes.PointInfo> pointsInfo2 = new List<Classes.PointInfo>();
         public MainWindow()
         {
             InitializeComponent();

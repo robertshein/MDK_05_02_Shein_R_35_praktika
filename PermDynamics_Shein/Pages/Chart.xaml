@@ -1,10 +1,10 @@
-﻿<Page x:Class="PermDynamics_Shein.Pages.Chart"
+<Page x:Class="PermDynamics_Shein.Pages.Chart"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:PermDynamics_Shein.Pages"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       d:DesignHeight="420" d:DesignWidth="794"
       Title="Chart" SizeChanged="Page_SizeChanged">
 
@@ -12,12 +12,34 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Images/chart.jpg"/>
         </Grid.Background>
-        <ScrollViewer x:Name="scroll" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden">
-            <Canvas x:Name="canvas" Margin="10" HorizontalAlignment="Left"/>
-        </ScrollViewer>
-        <Grid Width="200" Height="100" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Background="#7FFFFFFF">
-            <Label x:Name="current_value" Content="Тек. знач: " Margin="10,10,10,0" VerticalAlignment="Top"/>
-            <Label x:Name="average_value" Content="Сред. знач: " Margin="10,36,10,0" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- График 1 -->
+        <Grid Grid.Column="0">
+            <ScrollViewer x:Name="scroll1" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden">
+                <Canvas x:Name="canvas1" Margin="10" HorizontalAlignment="Left"/>
+            </ScrollViewer>
+            <Grid Width="200" Height="60" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Background="#7FFFFFFF">
+                <Label x:Name="current_value1" Content="Тек. знач: " Margin="10,5,10,0" VerticalAlignment="Top"/>
+                <Label x:Name="average_value1" Content="Сред. знач: " Margin="10,31,10,0" VerticalAlignment="Top"/>
+            </Grid>
+        </Grid>
+
+        <!-- Разделитель -->
+        <Rectangle Grid.Column="0" Width="1" HorizontalAlignment="Right" Fill="#80FFFFFF"/>
+
+        <!-- График 2 -->
+        <Grid Grid.Column="1">
+            <ScrollViewer x:Name="scroll2" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden">
+                <Canvas x:Name="canvas2" Margin="10" HorizontalAlignment="Left"/>
+            </ScrollViewer>
+            <Grid Width="200" Height="60" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Background="#7FFFFFFF">
+                <Label x:Name="current_value2" Content="Тек. знач: " Margin="10,5,10,0" VerticalAlignment="Top"/>
+                <Label x:Name="average_value2" Content="Сред. знач: " Margin="10,31,10,0" VerticalAlignment="Top"/>
+            </Grid>
         </Grid>
     </Grid>
 </Page>
