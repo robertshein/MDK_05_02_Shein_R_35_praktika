@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
@@ -23,6 +14,7 @@ namespace PermDynamics_Shein.Pages
         public double actualHeightCanvas = 0;
         public double maxValue = 0;
         double averageValue = 0;
+        private Line _averageLine = null;
 
         public DispatcherTimer dispatcherTimer = new DispatcherTimer();
         public Chart(MainWindow mainWindow)
@@ -53,6 +45,7 @@ namespace PermDynamics_Shein.Pages
         public void CreateChart()
         {
             canvas.Children.Clear();
+            _averageLine = null;
 
             for (int i = 0; i < mainWindow.pointsInfo.Count; i++)
             {
@@ -106,9 +99,26 @@ namespace PermDynamics_Shein.Pages
         {
             double value = mainWindow.pointsInfo[mainWindow.pointsInfo.Count - 1].value;
 
+            averageValue = 0;
             for (int i = 0; i < mainWindow.pointsInfo.Count; i++)
                 averageValue += mainWindow.pointsInfo[i].value;
             averageValue = averageValue / mainWindow.pointsInfo.Count;
+
+            double canvasWidth = mainWindow.pointsInfo.Count * 20 + 300;
+            if (_averageLine != null)
+                canvas.Children.Remove(_averageLine);
+            double avgY = actualHeightCanvas - ((averageValue / maxValue) * actualHeightCanvas);
+            _averageLine = new Line
+            {
+                X1 = 0,
+                X2 = canvasWidth,
+                Y1 = avgY,
+                Y2 = avgY,
+                Stroke = Brushes.Orange,
+                StrokeThickness = 2,
+                StrokeDashArray = new DoubleCollection { 6, 3 }
+            };
+            canvas.Children.Add(_averageLine);
 
             for (int i = 0; i < mainWindow.pointsInfo.Count; i++)
             {
