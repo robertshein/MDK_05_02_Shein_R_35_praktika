@@ -150,6 +150,26 @@ namespace PermDynamics_Shein.Pages
             averageLabel.Content = "Сред. знач: " + Math.Round(averageValue, 2);
         }
 
+        private void SaveToDatabase(object sender, RoutedEventArgs e)
+        {
+            dispatcherTimer.Stop();
+            try
+            {
+                Classes.ChartRepository.SaveCharts(mainWindow.pointsInfo, mainWindow.pointsInfo2);
+                MessageBox.Show("Данные успешно сохранены в базу данных.", "Сохранение",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при сохранении:\n" + ex.Message, "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                dispatcherTimer.Start();
+            }
+        }
+
         private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             actualHeightCanvas = mainWindow.Height - 50d;

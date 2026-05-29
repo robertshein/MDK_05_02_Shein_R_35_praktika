@@ -31,6 +31,17 @@
         <!-- Разделитель -->
         <Rectangle Grid.Column="0" Width="1" HorizontalAlignment="Right" Fill="#80FFFFFF"/>
 
+        <!-- Кнопка сохранения — поверх обеих колонок по центру внизу -->
+        <Button Grid.Column="0" Grid.ColumnSpan="2"
+                x:Name="btn_save"
+                Content="Сохранить в БД"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Margin="0,0,0,15"
+                Width="140" Height="30"
+                Background="White" BorderBrush="Black"
+                Click="SaveToDatabase"/>
+
         <!-- График 2 -->
         <Grid Grid.Column="1">
             <ScrollViewer x:Name="scroll2" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden">
