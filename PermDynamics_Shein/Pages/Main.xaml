@@ -32,13 +32,10 @@
                Height="100"
                Source="/Images/icon-white.png"/>
 
-        <Label Content="Акция 1 — начальное значение:"
+        <Label Content="Акция 1:"
                Grid.Column="1"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Top"
-               Margin="12,150,12,0"
-               Foreground="White"
-               Height="26"/>
+               Margin="24,150,226,234"
+               Foreground="White"/>
         <TextBox x:Name="tb_value"
                  Grid.Column="1"
                  HorizontalAlignment="Center"
@@ -49,13 +46,10 @@
                  Width="260"
                  TextWrapping="Wrap"/>
 
-        <Label Content="Акция 2 — начальное значение:"
+        <Label Content="Акция 2:"
                Grid.Column="1"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Top"
-               Margin="12,210,12,0"
-               Foreground="White"
-               Height="26"/>
+               Margin="23,210,226,174"
+               Foreground="White"/>
         <TextBox x:Name="tb_value2"
                  Grid.Column="1"
                  HorizontalAlignment="Center"
